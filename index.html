@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora Impact - Empowering Futures, Igniting Change</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #f9a826;
+            --accent: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #0d3a6b;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a6cc4 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e89a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Who Can Apply Section */
+        .who-can-apply {
+            background-color: #f8f9fa;
+        }
+        
+        .apply-cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .apply-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            transition: transform 0.3s;
+        }
+        
+        .apply-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .apply-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .apply-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Why Join Us Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .benefit-item:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .benefit-item:hover h3,
+        .benefit-item:hover p {
+            color: white;
+        }
+        
+        .benefit-item i {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .benefit-item p {
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a6cc4 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Form Modal - IMPROVED */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0d3a6b;
+        }
+        
+        /* NEW FEATURES */
+        
+        /* Impact Counter */
+        .impact-counter {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .counter-item {
+            padding: 20px;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+        
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Events Section */
+        .events-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .events-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--secondary);
+            transform: translateX(-50%);
+        }
+        
+        .event-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .event-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .event-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 45%;
+        }
+        
+        .event-date {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .events-timeline::before {
+                left: 30px;
+            }
+            
+            .event-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+            
+            .event-content {
+                width: 100%;
+            }
+            
+            .event-date {
+                left: 0;
+                transform: none;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .apply-card {
+                min-width: 100%;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="logo-main">NEXORA</span>
+                        <span class="logo-sub">IMPACT COMMUNITY</span>
+                    </div>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#apply">Get Involved</a>
+                    <a href="#benefits">Why Join Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <button class="cta-button" id="openForm">Join Us</button>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>EMPOWERING FUTURES.<br>IGNITING CHANGE.</h1>
+                <p>Nexora Impact is a youth-focused initiative committed to empowering young adults through mentorship, education, innovation, leadership, and skills development.</p>
+                <div class="hero-buttons">
+                    <a href="#apply" class="btn btn-primary">Get Involved</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Counter -->
+    <section class="impact-counter">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-count="5000">0</div>
+                    <div class="counter-label">Youth Impacted</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="250">0</div>
+                    <div class="counter-label">Active Volunteers</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="50">0</div>
+                    <div class="counter-label">Partner Organizations</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="15">0</div>
+                    <div class="counter-label">Communities Reached</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Nexora Impact</h2>
+                <p>We are a youth-focused initiative committed to empowering young adults through mentorship, education, innovation, leadership, and skills development.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are currently inviting passionate volunteers and forward-thinking partners to join us in building meaningful impact in our communities.</p>
+                    <p>Whether you're an individual eager to give back, or an organization looking to collaborate for change you're in the right place!</p>
+                    <p>Our mission is to create sustainable change by equipping young people with the tools, knowledge, and networks they need to thrive in today's world.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for organization image -->
+                    <div style="background-color: #e9ecef; height: 300px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                        <i class="fas fa-users" style="font-size: 80px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="who-can-apply">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>We offer a variety of programs designed to empower youth and create lasting impact</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #1a4b8c;">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Digital Literacy & Tech Skills</h3>
+                        <p>Equipping youth with essential digital skills for the 21st century workforce, including coding, digital marketing, and data analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #f9a826;">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Mentorship Program</h3>
+                        <p>Connecting young people with experienced mentors who provide guidance, support, and career advice.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #e63946;">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Youth Leadership Initiative</h3>
+                        <p>Developing the next generation of leaders through workshops, projects, and community engagement opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Can Apply Section -->
+    <section class="who-can-apply" id="apply">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who Can Apply?</h2>
+                <p>Join our community of changemakers and contribute to youth development</p>
+            </div>
+            
+            <div class="apply-cards">
+                <div class="apply-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteers</h3>
+                    <p>Individuals passionate about youth development, training, digital literacy, leadership, and making a difference in their communities.</p>
+                    <p>We welcome people from all backgrounds who are eager to share their skills and time.</p>
+                </div>
+                
+                <div class="apply-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Partners</h3>
+                    <p>NGOs, corporate bodies, schools, churches, tech hubs, brands, or professionals ready to collaborate and amplify our impact.</p>
+                    <p>Let's work together to create sustainable change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Join Us?</h2>
+                <p>Become part of a transformative movement and make a real difference</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Transformative Movement</h3>
+                    <p>Be part of a dynamic community driving real change in youth development.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Real Youth Impact</h3>
+                    <p>Contribute directly to programs that empower and uplift young people.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network with Changemakers</h3>
+                    <p>Connect with like-minded individuals and organizations passionate about youth development.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Build Capacity & Experience</h3>
+                    <p>Gain valuable experience, develop new skills, and increase your visibility in the social impact space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What People Say</h2>
+                <p>Hear from our volunteers, partners, and youth we've impacted</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-text">
+                        "Joining Nexora Impact has been one of the most rewarding experiences of my life. The opportunity to mentor young people and watch them grow has been incredible."
+                    </div>
+                    <div class="testimonial-author">Caleb Lambon </div>
+                    <div class="testimonial-role">Volunteer Mentor</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Our partnership with Nexora Impact has allowed us to extend our reach to communities we couldn't access before. Their dedication to youth development is inspiring."
+                    </div>
+                    <div class="testimonial-author">Nsobila Nelson</div>
+                    <div class="testimonial-role">Partner Organization</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The digital skills I gained through Nexora's program helped me land my first job in tech. I'm forever grateful for the opportunity they provided."
+                    </div>
+                    <div class="testimonial-author">Jordan Haku</div>
+                    <div class="testimonial-role">Program Participant</div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-slide="0"></div>
+                    <div class="testimonial-dot" data-slide="1"></div>
+                    <div class="testimonial-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+                <p>Join us for our upcoming activities and engagements</p>
+            </div>
+            
+            <div class="events-timeline">
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Youth Leadership Summit</h3>
+                        <p>A two-day summit bringing together young leaders for workshops, networking, and skill-building sessions.</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Community Center, Main City</p>
+                    </div>
+                    <div class="event-date">Nov 25, 2023</div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Digital Skills Workshop</h3>
+                        <p>Hands-on training session on digital literacy, coding basics, and online safety for youth.</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tech Hub Downtown</p>
+                    </div>
+                    <div class="event-date">Dec 5, 2023</div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Community Impact Day</h3>
+                        <p>Join us for a day of community service and engagement activities across multiple locations.</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Various Locations</p>
+                    </div>
+                    <div class="event-date">Dec 15, 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="who-can-apply" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Insights</h2>
+                <p>Stay updated with our latest news, stories, and insights</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-newspaper" style="font-size: 50px;"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>The Future of Youth Empowerment in Digital Age</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Nov 10, 2023</span>
+                            <span><i class="far fa-user"></i> Admin</span>
+                        </div>
+                        <p>Exploring how digital transformation is creating new opportunities for youth development and empowerment.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-newspaper" style="font-size: 50px;"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>5 Ways Mentorship Transforms Young Lives</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Nov 5, 2023</span>
+                            <span><i class="far fa-user"></i> Sarah Johnson</span>
+                        </div>
+                        <p>Real stories of how mentorship has created lasting impact in the lives of young people in our community.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-newspaper" style="font-size: 50px;"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Building Sustainable Partnerships for Community Impact</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Oct 28, 2023</span>
+                            <span><i class="far fa-user"></i> Michael Chen</span>
+                        </div>
+                        <p>How strategic partnerships between NGOs, corporations, and communities can create lasting change.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Stay Connected</h2>
+                <p style="color: rgba(255,255,255,0.8);">Subscribe to our newsletter for updates on programs, events, and opportunities</p>
+            </div>
+            
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join our community of volunteers and partners today. Together, we can empower futures and ignite change.</p>
+            <a href="#" class="btn btn-primary" id="openFormBottom">Join Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nexora Impact</h3>
+                    <p>Empowering young adults through mentorship, education, innovation, leadership, and skills development.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#apply">Get Involved</a></li>
+                        <li><a href="#benefits">Why Join Us</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> lamboncaleb540@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (+233) 597064511</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Community Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Nexora Impact Community. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Join Form Modal -->
+    <div class="modal" id="joinModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 20px;">Join Nexora Impact</h2>
+            <p style="margin-bottom: 20px;">Kindly fill this form with accurate details. Our team will contact you shortly after reviewing your submission.</p>
+            
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">I want to join as:</label>
+                    <select id="role" required>
+                        <option value="">Select an option</option>
+                        <option value="volunteer">Volunteer</option>
+                        <option value="partner">Partner Organization</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="skills">Skills/Expertise (for volunteers) or Organization Type (for partners)</label>
+                    <input type="text" id="skills">
+                </div>
+                
+                <div class="form-group">
+                    <label for="availability">Availability (for volunteers)</label>
+                    <select id="availability">
+                        <option value="">Select availability</option>
+                        <option value="weekdays">Weekdays</option>
+                        <option value="weekends">Weekends</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell us about yourself and why you want to join</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('joinModal');
+        const openFormBtn = document.getElementById('openForm');
+        const openFormBottomBtn = document.getElementById('openFormBottom');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        function openModal() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        openFormBtn.addEventListener('click', openModal);
+        openFormBottomBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Form submission
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading animation
+            document.getElementById('loading').style.display = 'flex';
+            
+            // Simulate form submission
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                alert('Thank you for your interest in Nexora Impact! We will contact you shortly.');
+                closeModal();
+                document.getElementById('joinForm').reset();
+            }, 2000);
+        });
+        
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.querySelector('.nav-links');
+                    if (window.innerWidth <= 768 && navLinks.style.display === 'flex') {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonial slider
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = this.getAttribute('data-slide');
+                
+                // Update active testimonial
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active');
+                });
+                testimonials[slideIndex].classList.add('active');
+                
+                // Update active dot
+                testimonialDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Auto-advance testimonials
+        let currentTestimonial = 0;
+        setInterval(function() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+            testimonials[currentTestimonial].classList.add('active');
+            
+            testimonialDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            testimonialDots[currentTestimonial].classList.add('active');
+        }, 5000);
+        
+        // Animated counter
+        const counters = document.querySelectorAll('.counter-number');
+        const speed = 200;
+        
+        function animateCounter() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Start counter animation when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelector('.impact-counter').querySelectorAll('.counter-number').forEach(counter => {
+            observer.observe(counter);
+        });
+    </script>
+</body>
+</html>
