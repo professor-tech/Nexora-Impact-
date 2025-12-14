@@ -59,6 +59,25 @@
             gap: 10px;
         }
         
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
         .logo-text {
             display: flex;
             flex-direction: column;
@@ -75,6 +94,22 @@
             font-size: 12px;
             font-weight: 500;
             color: var(--secondary);
+        }
+        
+        .upload-btn {
+            margin-top: 5px;
+            padding: 3px 8px;
+            font-size: 10px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background-color: #e89a1a;
         }
         
         .nav-links {
@@ -734,7 +769,7 @@
             margin-bottom: 15px;
         }
         
-        /* Gallery Section */
+        /* Gallery Section - UPDATED with Unsplash images */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -747,11 +782,14 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
         
         .gallery-item:hover {
@@ -779,6 +817,36 @@
             border: none;
             border-radius: 5px;
             font-size: 1rem;
+        }
+        
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background-color: #28a745;
+        }
+        
+        .notification.error {
+            background-color: #dc3545;
         }
         
         /* Back to Top Button */
@@ -905,6 +973,11 @@
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+            
+            .logo-container {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -923,6 +996,19 @@
             .modal-content {
                 padding: 20px;
             }
+            
+            .logo-container {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-main {
+                font-size: 20px;
+            }
+            
+            .logo-sub {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
@@ -932,14 +1018,25 @@
         <div class="spinner"></div>
     </div>
 
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Form submitted successfully!</span>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
+                    <div class="logo-container">
+                        <img id="logoImg" class="logo-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80" alt="Nexora Impact Logo">
+                    </div>
                     <div class="logo-text">
                         <span class="logo-main">NEXORA</span>
                         <span class="logo-sub">IMPACT COMMUNITY</span>
+                        <button class="upload-btn" id="uploadLogoBtn">Upload Logo</button>
+                        <input type="file" id="logoUpload" accept="image/*" style="display: none;">
                     </div>
                 </div>
                 
@@ -1024,7 +1121,7 @@
         </div>
     </section>
 
-    <!-- Programs Section -->
+    <!-- Programs Section - UPDATED with Communication Skills -->
     <section id="programs" class="who-can-apply">
         <div class="container">
             <div class="section-title">
@@ -1039,34 +1136,64 @@
                     </div>
                     <div class="program-content">
                         <h3>Digital Literacy & Tech Skills</h3>
-                        <p>Equipping youth with essential digital skills for the 21st century workforce, including coding, digital marketing, and data analysis.</p>
+                        <p>Equipping youth with essential digital skills including: Web Development, Data Analysis, Digital Marketing, Graphic Design, Cybersecurity, and AI Basics.</p>
                     </div>
                 </div>
                 
                 <div class="program-card">
                     <div class="program-image" style="background-color: #f9a826;">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fas fa-comments"></i>
                     </div>
                     <div class="program-content">
-                        <h3>Mentorship Program</h3>
-                        <p>Connecting young people with experienced mentors who provide guidance, support, and career advice.</p>
+                        <h3>Communication Skills Program</h3>
+                        <p>Master public speaking, professional writing, interpersonal communication, presentation skills, negotiation techniques, and digital communication strategies.</p>
                     </div>
                 </div>
                 
                 <div class="program-card">
                     <div class="program-image" style="background-color: #e63946;">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Mentorship Program</h3>
+                        <p>Personalized guidance in Career Development, Entrepreneurship, Personal Growth, Financial Literacy, and Professional Networking.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #28a745;">
                         <i class="fas fa-seedling"></i>
                     </div>
                     <div class="program-content">
                         <h3>Youth Leadership Initiative</h3>
-                        <p>Developing the next generation of leaders through workshops, projects, and community engagement opportunities.</p>
+                        <p>Develop leadership skills through Project Management, Team Building, Conflict Resolution, Strategic Planning, and Community Engagement.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #6f42c1;">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Entrepreneurship Training</h3>
+                        <p>Learn Business Planning, Market Research, Financial Management, Product Development, and Startup Strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-color: #17a2b8;">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="program-content">
+                        <h3>Personal Development</h3>
+                        <p>Workshops on Emotional Intelligence, Time Management, Goal Setting, Stress Management, and Building Resilience.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - UPDATED with Unsplash Images -->
     <section id="gallery" class="who-can-apply">
         <div class="container">
             <div class="section-title">
@@ -1076,22 +1203,22 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <i class="fas fa-camera" style="font-size: 50px;"></i>
+                    <img src="gallery/val.jpg" alt="Youth Leadership Workshop">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-images" style="font-size: 50px;"></i>
+                    <img src="gallery/IMG_9383.jpg" alt="Team Building Activity">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-photo-video" style="font-size: 50px;"></i>
+                    <img src="gallery/IMG_9701 (1).jpg" alt="Group Discussion">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-calendar-alt" style="font-size: 50px;"></i>
+                    <img src="gallery/November.png" alt="Learning Session">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-user-graduate" style="font-size: 50px;"></i>
+                    <img src="gallery/72a6b52f-59c8-4ba7-8216-8a0787771124_removalai_preview.png" alt="Community Outreach">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-hands-helping" style="font-size: 50px;"></i>
+                    <img src="gallery/IMG_4441.jpg" alt="Team Collaboration">
                 </div>
             </div>
         </div>
@@ -1221,8 +1348,8 @@
                 
                 <div class="event-item">
                     <div class="event-content">
-                        <h3>Digital Skills Workshop</h3>
-                        <p>Hands-on training session on digital literacy, coding basics, and online safety for youth.</p>
+                        <h3>Communication Skills Workshop</h3>
+                        <p>Hands-on training session on effective communication, public speaking, and presentation skills.</p>
                         <p><i class="fas fa-map-marker-alt"></i> Tech Hub Downtown</p>
                     </div>
                     <div class="event-date">Dec 5, 2023</div>
@@ -1306,7 +1433,7 @@
             </div>
             
             <!-- FormSubmit connected form -->
-            <form class="newsletter-form" id="newsletterForm" action="https://formsubmit.co/nexoraimpact" method="POST">
+            <form class="newsletter-form" id="newsletterForm" action="https://formsubmit.co/nexoraimpact@gmail.com" method="POST">
                 <input type="email" class="newsletter-input" name="email" placeholder="Your email address" required>
                 <input type="hidden" name="_subject" value="New Newsletter Subscription - Nexora Impact">
                 <input type="hidden" name="_captcha" value="false">
@@ -1325,7 +1452,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - UPDATED with correct social links -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -1333,10 +1460,21 @@
                     <h3>Nexora Impact</h3>
                     <p>Empowering young adults through mentorship, education, innovation, leadership, and skills development.</p>
                     <div class="social-icons">
-                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://web.facebook.com/share/p/163dV7Xut2/" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/nexora-impact/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nexoraimpact_official?igsh=YzljYTk1ODg3Zg==" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:nexoraimpact@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/233535788319" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -1356,8 +1494,9 @@
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> lamboncaleb540@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +233 597064511</li>
+                        <li><i class="fas fa-envelope"></i> nexoraimpact@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +233 535 788 319</li>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp: +233 535 788 319</li>
                         <li><i class="fas fa-map-marker-alt"></i> 123 Community Street, City, Country</li>
                     </ul>
                 </div>
@@ -1408,6 +1547,19 @@
                 </div>
                 
                 <div class="form-group">
+                    <label for="programs">Programs of Interest</label>
+                    <select id="programs" name="programs" multiple style="height: 120px;">
+                        <option value="digital-literacy">Digital Literacy & Tech Skills</option>
+                        <option value="communication">Communication Skills Program</option>
+                        <option value="mentorship">Mentorship Program</option>
+                        <option value="leadership">Youth Leadership Initiative</option>
+                        <option value="entrepreneurship">Entrepreneurship Training</option>
+                        <option value="personal-development">Personal Development</option>
+                    </select>
+                    <small>Hold Ctrl/Cmd to select multiple options</small>
+                </div>
+                
+                <div class="form-group">
                     <label for="skills">Skills/Expertise (for volunteers) or Organization Type (for partners)</label>
                     <input type="text" id="skills" name="skills">
                 </div>
@@ -1431,6 +1583,7 @@
                 <input type="hidden" name="_subject" value="New Join Application - Nexora Impact">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="#">
+                <input type="hidden" name="_template" value="table">
                 
                 <button type="submit" class="submit-btn">Submit Application</button>
             </form>
@@ -1465,32 +1618,122 @@
             }
         });
         
+        // Notification system
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        
+        function showNotification(message, type = 'success') {
+            notificationText.textContent = message;
+            notification.className = 'notification';
+            notification.classList.add('show', type);
+            
+            // Update icon based on type
+            const icon = notification.querySelector('i');
+            icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+        
         // Form submission handling
         document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             // Show loading animation
             document.getElementById('loading').style.display = 'flex';
             
-            // Form will submit to FormSubmit.co automatically
-            // We'll keep the loading visible for 2 seconds to simulate processing
-            setTimeout(function() {
+            // Get form data
+            const formData = new FormData(this);
+            const action = this.action;
+            
+            // Submit to FormSubmit.co using Fetch API
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('loading').style.display = 'none';
+                    showNotification('Thank you for your interest in Nexora Impact! We will contact you shortly.', 'success');
+                    closeModal();
+                    this.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
                 document.getElementById('loading').style.display = 'none';
-                alert('Thank you for your interest in Nexora Impact! We will contact you shortly.');
-                closeModal();
-                document.getElementById('joinForm').reset();
-            }, 2000);
+                showNotification('There was an error submitting your form. Please try again.', 'error');
+                console.error('Error:', error);
+            });
         });
         
         // Newsletter form submission
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             // Show loading animation
             document.getElementById('loading').style.display = 'flex';
             
-            // Form will submit to FormSubmit.co automatically
-            setTimeout(function() {
+            // Get form data
+            const formData = new FormData(this);
+            const action = this.action;
+            
+            // Submit to FormSubmit.co using Fetch API
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('loading').style.display = 'none';
+                    showNotification('Thank you for subscribing to our newsletter!', 'success');
+                    this.reset();
+                } else {
+                    throw new Error('Newsletter subscription failed');
+                }
+            })
+            .catch(error => {
                 document.getElementById('loading').style.display = 'none';
-                alert('Thank you for subscribing to our newsletter!');
-                document.getElementById('newsletterForm').reset();
-            }, 2000);
+                showNotification('There was an error with your subscription. Please try again.', 'error');
+                console.error('Error:', error);
+            });
+        });
+        
+        // Logo upload functionality
+        const logoUpload = document.getElementById('logoUpload');
+        const logoImg = document.getElementById('logoImg');
+        const uploadLogoBtn = document.getElementById('uploadLogoBtn');
+        
+        uploadLogoBtn.addEventListener('click', function() {
+            logoUpload.click();
+        });
+        
+        logoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    logoImg.src = e.target.result;
+                    
+                    // Save to localStorage
+                    localStorage.setItem('nexoraLogo', e.target.result);
+                    
+                    showNotification('Logo uploaded successfully!', 'success');
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Load logo from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLogo = localStorage.getItem('nexoraLogo');
+            if (savedLogo) {
+                logoImg.src = savedLogo;
+            }
         });
         
         // Mobile menu toggle
